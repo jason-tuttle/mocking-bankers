@@ -37,8 +37,9 @@
 }
 
 header {
-  background-color: lightgray;
-  color: darkgreen;
+  height: 125px;
+  background-color: rgba(200, 200, 200, 0.8);
+  color: black;
 }
 .header {
   font-family: 'Playfair Display SC', serif;
