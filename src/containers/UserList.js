@@ -17,8 +17,8 @@ class UserList extends Component {
             );
         });
         return (
-            <div style={{width: '50%'}}>
-              <h5>Users with open accounts:</h5>
+            <div className="card" style={{width: '50%'}}>
+              <h5 className="card-header">Users with open accounts:</h5>
               <ul>
                 {users}
               </ul>

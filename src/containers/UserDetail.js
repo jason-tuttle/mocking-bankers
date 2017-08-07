@@ -35,8 +35,8 @@ class UserDetail extends Component {
       <div className="col-md-6">
         <div className= "card">
           <div className= "card-block">
-            <h4 className= "card-title">Account Information</h4>
-            <h6 className= "card-subtitle mb-2 text-muted">{this.props.user.name}</h6>
+            <h4 className= "card-header">Account Information</h4>
+            <h5 className= "card-title">{this.props.user.name}</h5>
             <div className= "card-text">
               <div>{this.props.user.email}</div>
               <div>{this.props.user.phone}</div>

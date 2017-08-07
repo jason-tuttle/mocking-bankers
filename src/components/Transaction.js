@@ -12,10 +12,10 @@ class Transaction extends Component {
           <h2>Make a withdrawal:</h2>
           <p>Current account balance: {selectedAccount.balance}</p>
           <div>
-            <button className="btn btn-success" value="10" onClick={this.props.onClick}>10</button>
-            <button className="btn btn-primary" value="20" onClick={this.props.onClick}>20</button>
-            <button className="btn btn-info" value="50" onClick={this.props.onClick}>50</button>
-            <button className="btn btn-warning" value="100" onClick={this.props.onClick}>100</button>
+            <button className="btn btn-success" value="10" onClick={this.props.onClick}>$10</button>
+            <button className="btn btn-primary" value="20" onClick={this.props.onClick}>$20</button>
+            <button className="btn btn-info" value="50" onClick={this.props.onClick}>$50</button>
+            <button className="btn btn-warning" value="100" onClick={this.props.onClick}>$100</button>
             <button className="btn btn-secondary" value="cancel" onClick={this.props.onClick}>Cancel</button>
           </div>
         </div>

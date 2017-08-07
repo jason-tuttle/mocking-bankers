@@ -45,10 +45,10 @@ class AccountDetail extends Component {
       <div>
 
           <div className="col-md-6">
-            <div className="card">
-              <h2 className="card-title">Account Details</h2>
-              <h3 className="card-subtitle">Account: <small>{accountType}</small></h3>
-              <p className="card-text">Current Balance: $<span className={accountType !== 'credit' ? 'balance positive' : 'balance negative'}>{balance}</span></p>
+            <div className="card" style={{padding: '10px'}}>
+              <h2 className="card-header" style={{marginBottom: '10px'}}>Account Details</h2>
+              <h3 className="card-subtitle" style={{marginBottom: '10px'}}>Account: <small>{accountType}</small></h3>
+              <p className="card-text" style={{marginBottom: '10px'}}>Current Balance: $<span className={accountType !== 'credit' ? 'balance positive' : 'balance negative'}>{balance}</span></p>
               <button className="btn btn-danger" onClick={this.toggleModal}>Withdraw Funds</button>
               <Link to={`/users/${user._id}`} className="btn btn-primary">Back to User</Link>
               <Transaction className={isOpen ? modalClasses.open : modalClasses.closed} onClick={this.handleClick} />
