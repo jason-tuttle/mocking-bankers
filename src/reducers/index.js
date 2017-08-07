@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+
 import {USER_SELECTED, ACCOUNT_SELECTED, WITHDRAW_FUNDS} from '../actions/index';
 import userList from '../data/users';
 import update from 'immutability-helper';
@@ -14,10 +14,10 @@ const reducer = function(state = initialState, action) {
         case USER_SELECTED:
             return update(state, {
                 selectedUser: {
-                    $set: state.users.find(item => item._id === action.payload)
+                    $set: action.payload
                 }
             });
-        
+
         case ACCOUNT_SELECTED:
             return update(state, {
               selectedAccount: {
@@ -26,7 +26,7 @@ const reducer = function(state = initialState, action) {
             })
         case WITHDRAW_FUNDS:
             const userIdx = state.users.findIndex(user => user._id === state.selectedUser);
-            const accountIdx = state.users[userIdx].accounts.findIndex(account => account.id === state.selectedAccount);
+            const accountIdx = state.users[userIdx].accounts.findIndex(account => account.id === state.selectedAccount.id);
 
             return update(state, {
                 users: {

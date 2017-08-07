@@ -7,7 +7,7 @@ class BaseLayout extends Component {
   render() {
     return (
       <div style={{
-          backgroundImage: "url('https://media.coindesk.com/uploads/2015/08/bank-building.jpg')",
+          backgroundImage: `url(${bankImg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'bottom'
         }}>

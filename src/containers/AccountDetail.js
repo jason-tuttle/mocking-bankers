@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
 import { withdrawFunds } from '../actions/index';
 import Transaction from '../components/Transaction';
 
@@ -27,6 +25,17 @@ class AccountDetail extends Component {
     })
   }
 
+  handleClick = (e) => {
+    console.log("handling click...");
+    if (e.target.value === "cancel") {
+      this.toggleModal();
+    } else {
+      console.log(`withdrawing ${e.target.value}`);
+      this.props.withdrawFunds(e.target.value);
+      this.toggleModal();
+    }
+  }
+
   render() {
     const {accountType, balance} = this.props.account;
     const {user} = this.props;
@@ -42,7 +51,7 @@ class AccountDetail extends Component {
               <p className="card-text">Current Balance: $<span className={accountType !== 'credit' ? 'balance positive' : 'balance negative'}>{balance}</span></p>
               <button className="btn btn-danger" onClick={this.toggleModal}>Withdraw Funds</button>
               <Link to={`/users/${user._id}`} className="btn btn-primary">Back to User</Link>
-              <Transaction className={isOpen ? modalClasses.open : modalClasses.closed} onClick={this.toggleModal} />
+              <Transaction className={isOpen ? modalClasses.open : modalClasses.closed} onClick={this.handleClick} />
             </div>
           </div>
 
@@ -53,16 +62,18 @@ class AccountDetail extends Component {
 }
 
 function mapStateToProps(state) {
+  const userIdx = state.users.findIndex(user => user._id === state.selectedUser);
+  const accountIdx = state.users[userIdx].accounts.findIndex(account => account.id === state.selectedAccount.id);
   return {
-    user: state.selectedUser,
-    account: state.selectedAccount
+    account: state.users[userIdx].accounts[accountIdx],
+    user: state.users[userIdx]
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     withdrawFunds
-  });
+  }, dispatch);
 }
 
 

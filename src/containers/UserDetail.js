@@ -55,8 +55,9 @@ class UserDetail extends Component {
 }
 
 function mapStateToProps(state) {
+  const userIdx = state.users.findIndex(user => user._id === state.selectedUser);
   return {
-    user: state.selectedUser,
+    user: state.users[userIdx],
     account: state.selectedAccount
   };
 }
