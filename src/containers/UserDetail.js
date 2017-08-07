@@ -21,14 +21,12 @@ class UserDetail extends Component {
     const {user} = this.props;
     //map over the accounts for the user to create links to them.
     let accounts = user.accounts.map(account => {
-
-      //creating a Link with the account type for
-      //each account.
+      //creating a Link with the account type for each account.
       return (
         <div key={account.id}>
           <Link
             onClick={() => this.props.selectAccount(account)}
-            to={`/users/${id}/${account.id}`}>{account.accountType}</Link>
+            to={`/users/${id}/${account.id}`}>View {account.accountType} account</Link>
         </div>
 
       )

@@ -20,6 +20,7 @@ import BaseLayout from './components/BaseLayout.js';
 import UserList from './containers/UserList';
 import UserDetail from './containers/UserDetail';
 import AccountDetail from './containers/AccountDetail';
+import Transaction from './components/Transaction';
 
 //create store for redux and apply middleware
 const createStoreWithMiddleware = applyMiddleware()(createStore);
@@ -31,6 +32,7 @@ ReactDOM.render(
       <BaseLayout>
         <Switch>
           <Route exact path="/" component={App} />
+          <Route path="/transaction" component={Transaction} />
           <Route path="/users/:id/:accountID" component={AccountDetail} />
           <Route path="/users/:id" component={UserDetail} />
           <Route path="/users" component={UserList} />

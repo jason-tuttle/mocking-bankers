@@ -52,3 +52,37 @@ header {
 .subtitle {
   font-weight: normal;
 }
+
+.my-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10vw;
+  z-index: 10;
+}
+.my-modal-card {
+  position: fixed;
+  top: 10vh;
+  left: 25vw;
+  width: 50vw;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 20;
+  padding: 20px;
+}
+.my-modal-show {
+  display: block;
+  opacity: 1.0;
+  -webkit-transition: opacity 0.5s, display 0.5s;
+  transition: opacity 0.5s, display 0.5s;
+}
+.my-modal-closed {
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s, display 0.5s;
+  transition: opacity 0.5s, display 0.5s;
+}
